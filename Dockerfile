@@ -1,5 +1,5 @@
 FROM docker.io/busybox:latest
 
-COPY ./delivery  /
+COPY ./dubbo-demo-provider/target/*.jar /
 
 CMD "tail" "-f" "/dev/null"
