@@ -1,7 +1,12 @@
 FROM docker.io/busybox:latest
 
-COPY ./dubbo-demo-consumer/target/*.jar /
+COPY ./app /
 
-COPY ./dubbo-demo-api/target/*.jar /
+RUN tar xvf dubbo-demo-consumer-2.5.3-assembly.tar.gz
+
+RUN mkdir app
+RUN cp -rf dubbo-demo-consumer-2.5.3/bin/ /app
+RUN cp -rf dubbo-demo-consumer2.5.3/conf/ /app
+RUN cp -rf dubbo-demo-consumer-2.5.3/lib/ /app
 
 CMD "tail" "-f" "/dev/null"
